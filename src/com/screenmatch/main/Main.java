@@ -1,26 +1,22 @@
+package com.screenmatch.main;
+
 import com.screenmatch.calculos.CalculadoraTempo;
 import com.screenmatch.calculos.FiltroRecomendacao;
-import com.screenmatch.modelo.Episodio;
-import com.screenmatch.modelo.Filme;
-import com.screenmatch.modelo.Serie;
+import com.screenmatch.modelo.*;
 
 import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
 
-        Filme meuFilme = new Filme();
-
-
-        meuFilme.setNome("O Poderoso Chefão");
-        meuFilme.setAnoLancamento(1970);
+        Filme meuFilme = new Filme("O Poderoso Chefão",1970);
         meuFilme.setDuracaoMinutos(180);
         meuFilme.setIncluidoPlano(true);
 
 
         meuFilme.avalia(8);
         meuFilme.avalia(5);
-        meuFilme.avalia(9);
+        meuFilme.avalia(90);
 
 
         meuFilme.exibeFichaTecnica();
@@ -28,20 +24,15 @@ public class Main {
         System.out.println("Média Avaliação: "+meuFilme.pegaMedia());
         System.out.println("Total de Avaliações: "+meuFilme.getTotalAvaliacao());
 
-        Serie lost = new Serie();
-        lost.setNome("Lost");
-        lost.setAnoLancamento(2000);
+        Serie lost = new Serie("lost", 2000);
         lost.setTemporadas(10);
         lost.setEpisodiosPorTemporada(10);
         lost.exibeFichaTecnica();
         lost.setMinutosPorEpisodio(50);
         System.out.println("Duração de Maratona: " + lost.getDuracaoMinutos() + (" Minutos"));
 
-        Filme outroFilme = new Filme();
+        Filme outroFilme = new Filme("Avatar", 1923);
 
-
-        outroFilme.setNome("Avatar");
-        outroFilme.setAnoLancamento(1923);
         outroFilme.setDuracaoMinutos(200);
         outroFilme.setIncluidoPlano(true);
 
@@ -60,10 +51,8 @@ public class Main {
         episodio.setTotalVisualizacoes(300);
         filtro.filtra(episodio);
 
-        Filme filmeNovo = new Filme();
+        Filme filmeNovo = new Filme("Transformers", 2003);
         filmeNovo.setDuracaoMinutos(200);
-        filmeNovo.setNome("Transformers");
-        filmeNovo.setAnoLancamento(2003);
         filmeNovo.avalia(7);
 
         ArrayList<Filme> listaDeFilmes = new ArrayList<>();
@@ -74,5 +63,8 @@ public class Main {
 
         System.out.println("Tamanho da lista: "+listaDeFilmes.size());
         System.out.println("Primeiro filme: "+listaDeFilmes.get(0).getNome());
+        System.out.println(listaDeFilmes.toString());
+
+
     }
 }
