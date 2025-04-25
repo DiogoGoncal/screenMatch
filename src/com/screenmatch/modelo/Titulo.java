@@ -1,6 +1,6 @@
 package com.screenmatch.modelo;
 
-public class Titulo {
+public class Titulo implements Comparable<Titulo>{
     private String nome;
     private int anoLancamento;
     private boolean incluidoPlano;
@@ -64,5 +64,11 @@ public class Titulo {
 
     public void setDuracaoMinutos(int duracaoMinutos) {
         this.duracaoMinutos = duracaoMinutos;
+    }
+
+
+    @Override
+    public int compareTo(Titulo outroTitulo) {
+        return this.getNome().compareTo(outroTitulo.getNome());
     }
 }
